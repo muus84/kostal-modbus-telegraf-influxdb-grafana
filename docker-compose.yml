@@ -4,7 +4,7 @@ services:
   telegraf:
     image: telegraf:latest
     restart: always
-    command: bash -c "COPY telegraf-kostal-plenticore/telegraf.conf /etc/telegraf/telegraf.conf"
+    command: bash -c "cp telegraf-kostal-plenticore/telegraf.conf /etc/telegraf/telegraf.conf"
     mem_limit: 100M
 
   influxdb:
