@@ -3,8 +3,6 @@ version: "2.2"
 services:
   telegraf:
     image:telegraf:latest
-    depends_on:
-      - influxdb
     extra_hosts:
       - "scb:192.168.2.20"
     restart: always
