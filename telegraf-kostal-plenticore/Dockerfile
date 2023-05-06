@@ -32,8 +32,8 @@ RUN curl -o /build/entrypoint.sh https://raw.githubusercontent.com/influxdata/in
 
 FROM buildpack-deps:stretch-curl
 
-RUN DEBIAN_FRONTEND=noninteractive dnf update -y && \
-    DEBIAN_FRONTEND=noninteractive dnf install -y \
+RUN dnf update -y && \
+    dnf install -y \
             iputils \
             net-snmp \
             net-snmp-utils \
