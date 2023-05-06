@@ -1,10 +1,8 @@
 version: "2.2"
 
 services:
-  telegraf-kostal-plenticore:
-    build:
-      context: telegraf-kostal-plenticore
-      dockerfile: Dockerfile
+  telegraf:
+    image:telegraf:latest
     depends_on:
       - influxdb
     extra_hosts:
@@ -12,15 +10,8 @@ services:
     restart: always
     mem_limit: 100M
 
-  # chronograf:
-  #   image: chronograf
-  #   links: 
-  #     - influxdb
-  #   ports:
-  #     - 8888:8888
-
   influxdb:
-    image: influxdb:1.7
+    image: influxdb:latest
     environment: 
       - INFLUXDB_REPORTING_DISABLED=true
       - INFLUXDB_HTTP_LOG_ENABLED=false
