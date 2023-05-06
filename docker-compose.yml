@@ -4,9 +4,8 @@ services:
   telegraf:
     image: telegraf:latest
     restart: always
-    command: bash -c "dnf install wget -y 
-      && wget https://github.com/ChrisPea/telegraf-kostal-modbus/blob/cb3f97e46771caaed976e88568377a13344fbe6b/telegraf-kostal-plenticore/telegraf.conf
-      && cp telegraf.conf /etc/telegraf/telegraf.conf"
+    command: bash -c "curl https://github.com/ChrisPea/telegraf-kostal-modbus/blob/cb3f97e46771caaed976e88568377a13344fbe6b/telegraf-kostal-plenticore/telegraf.conf -O telegraf.conf
+      && mkdir -p /etc/telegraf/ && cp telegraf.conf /etc/telegraf/telegraf.conf"
     mem_limit: 100M
 
   influxdb:
