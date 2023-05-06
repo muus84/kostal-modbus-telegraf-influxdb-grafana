@@ -4,6 +4,7 @@ services:
   telegraf:
     image: telegraf:latest
     restart: always
+    command: bash -c "COPY telegraf.conf /etc/telegraf/telegraf.conf"
     mem_limit: 100M
 
   influxdb:
