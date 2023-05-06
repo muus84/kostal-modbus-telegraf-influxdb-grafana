@@ -1,7 +1,7 @@
 FROM golang:1.12.7-stretch AS builder
 
-RUN apt-get update \
-    && apt-get --no-install-recommends -y install \
+RUN dnf update -y \
+    && dnf -y install \
         curl \
         git
 
@@ -32,13 +32,13 @@ RUN curl -o /build/entrypoint.sh https://raw.githubusercontent.com/influxdata/in
 
 FROM buildpack-deps:stretch-curl
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-            iputils-ping \
-            snmp \
+RUN DEBIAN_FRONTEND=noninteractive dnf update -y && \
+    DEBIAN_FRONTEND=noninteractive dnf install -y \
+            iputils \
+            net-snmp \
+            net-snmp-utils \
             procps \
-            lm-sensors  \
-    && rm -rf /var/lib/apt/lists/* 
+            lm_sensors 
 
 EXPOSE 8125/udp 8092/udp 8094
 
