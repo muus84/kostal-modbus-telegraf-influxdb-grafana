@@ -1,9 +1,13 @@
-version: "2.2"
+version: "2.3"
 
 services:
   telegraf:
     image: telegraf:latest
     restart: always
+    depends_on:
+      - influxdb
+    extra_hosts: 
+      - "scb.fritz.box:192.168.2.20"
     volumes:
       # Mount for telegraf config
       - /data/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf
