@@ -3,7 +3,7 @@ version: "2.2"
 services:
   telegraf:
     image: telegraf:latest
-    restart: "no"
+    restart: always
     volumes:
       # Mount for telegraf config
       - /data/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf
