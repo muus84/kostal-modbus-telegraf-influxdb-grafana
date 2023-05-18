@@ -7,7 +7,7 @@ services:
     volumes:
       # Mount for telegraf config
       - /data/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf
-    command: --debug
+    command: --input-filter modbus config
     mem_limit: 100M
 
   influxdb:
