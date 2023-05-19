@@ -15,7 +15,7 @@ services:
     mem_limit: 100M
 
   influxdb:
-    image: influxdb:latest
+    image: influxdb:1.8.10
     environment: 
       - INFLUXDB_REPORTING_DISABLED=true
       - INFLUXDB_HTTP_LOG_ENABLED=false
